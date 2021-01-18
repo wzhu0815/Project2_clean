@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Flight Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- bootswatch  -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="indext.html">Home</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarColor01"
+        aria-controls="navbarColor01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="plotly.html">Airline Charts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="leaftlet.html">Airport Map</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="table.html">Flight Info</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              data-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >News</a
+            >
+            <div class="dropdown-menu">
+              <a
+                class="dropdown-item"
+                href="https://www.faa.gov/news/updates/"
+                target="_blank"
+                >FAA News</a
+              >
+              <div class="dropdown-divider"></div>
+              <a
+                class="dropdown-item"
+                href=" https://www.flightglobal.com/news "
+                target="_blank"
+                >Flgiht Global</a
+              >
+              <a
+                class="dropdown-item"
+                href="https://www.breakingtravelnews.com/news/category/airline/ "
+                target="_blank"
+                >Breaking Travel News</a
+              >
+              <a
+                class="dropdown-item"
+                href="https://www.usatoday.com/travel/airline-news/ "
+                target="_blank"
+                >US Today</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="text-center jumbotron">
+      <h1>Flight Information</h1>
+      <hr />
+      <h5>2018-01-01</h5>
+    </div>
+    <div class="container">
+      <div class="row margin-top-50">
+        <div class="col-md-12">
+          <div id="table-area" class="">
+            <table id="ufo-table" class="display" style="width: 100%">
+              <thead>
+                <tr>
+                  <th class="table-head">Date</th>
+                  <th class="table-head">Airline</th>
+                  <th class="table-head">Flight_Num</th>
+                  <th class="table-head">Origin</th>
+                  <th class="table-head">Destination</th>
+                  <th class="table-head">Air_Time (mins)</th>
+                  <th class="table-head">Distance (miles)</th>
+                  <th class="table-head">Dep_Time</th>
+                  <th class="table-head">Delay (mins)</th>
+                  <th class="table-head">Cancelled (Y/N)</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <table id="ufo-table" class="display table table-striped"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- cloudflare -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+    <!-- bootstrap -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- datatables -->
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <!-- user js -->
+    <script src="static/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Airline Chart</title>
+
+    <!-- bootswatch  -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.min.css')}}"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="/">Home</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarColor01"
+        aria-controls="navbarColor01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/plotly">Airline Charts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/map">Airport Map</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/info">Flight Info</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              data-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >News</a
+            >
+            <div class="dropdown-menu">
+              <a
+                class="dropdown-item"
+                href="https://www.faa.gov/news/updates/"
+                target="_blank"
+                >FAA News</a
+              >
+              <div class="dropdown-divider"></div>
+              <a
+                class="dropdown-item"
+                href=" https://www.flightglobal.com/news "
+                target="_blank"
+                >Flgiht Global</a
+              >
+              <a
+                class="dropdown-item"
+                href="https://www.breakingtravelnews.com/news/category/airline/ "
+                target="_blank"
+                >Breaking Travel News</a
+              >
+              <a
+                class="dropdown-item"
+                href="https://www.usatoday.com/travel/airline-news/ "
+                target="_blank"
+                >US Today</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="text-center jumbotron">
+      <h1>Flight Information</h1>
+      <hr />
+      <h5>2018-01-01</h5>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="well">
+            <h5>Airline Code:</h5>
+            <!-- onchange="optionChanged(this.value)" was deleted from the <select> -->
+            <select id="selDataset"></select>
+          </div>
+          <div class="alert alert-dismissible alert-success">
+            <div class="panel-heading">
+              <h6 class="panel-title">Airline Info</h6>
+            </div>
+            <div id="sample-metadata" class=""></div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div id="bar"></div>
+        </div>
+        <div class="col-md-4">
+          <div id="gauge"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="bubble"></div>
+        </div>
+      </div>
+    </div>
+    <!-- bootstrap -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../static/js/plotly.js"></script>
+    <!-- JS -->
+    <!-- <script src="{{ url_for('static', filename='js/plot.js') }}"></script> -->
+  </body>
+</html>
