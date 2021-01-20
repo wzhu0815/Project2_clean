@@ -25,6 +25,12 @@ from pymongo import MongoClient
 import json
 from bson.json_util import dumps
 
+# SCRAPING 
+import scrape_data
+# Use PyMongo to establish Mongo connection (project2_app)
+mongo = PyMongo(app, uri="mongodb://localhost:27017/project2_app")
+
+
 client = MongoClient('mongodb://localhost:27017/')
 db = client.project2_db
 aiport_collection = db.airport_na.find()
@@ -47,7 +53,30 @@ severe_list=list(severe_collection)
 # create route that renders index.html template home/landing page
 @app.route("/")
 def home():
-    return render_template("index.html")
+    # return render_template("index.html")
+
+    # Find one rcd of data from the mongo database
+    scraped_info = mongo.db.scraped_collection.find_one()
+
+    # Return template and data
+    return render_template("index.html", scraped_info = scraped_info)
+
+# create scrape route 
+# this route that will trigger the scrape function
+@app.route("/scrape")
+def scrape():
+    scraped_collection = mongo.db.scraped_collection
+
+    # run the "scrape()" function for "scrape_data.py"
+    scraping = scrape_data.scrape()
+
+    # insert the scraping in to the collection
+    scraped_collection.update({}, scraping, upsert=True)
+
+    # go back to the home/main page
+    return redirect("/")
+
+
 @app.route("/airport")
 def airport():
     return dumps(aiport_list)

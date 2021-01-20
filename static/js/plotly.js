@@ -29,7 +29,7 @@ d3.selectAll("#selDataset").on("change", change);
 function change() {
   var dropdownMenu = d3.select("#selDataset");
   var sampleId = dropdownMenu.node().value;
-  d3.json("flight").then((response) => {
+  d3.json("/flight").then((response) => {
     const data = response;
     console.log(1);
     console.log(data[0]);
@@ -48,9 +48,9 @@ function change() {
     var airArray = delayData.map((d) => d.Air_Time);
     var cancelPc = Math.round((cancelNum / flightNum) * 10000) / 100;
     // delayArray = [1, 2, 3, 4, 5];
-    var delayAve =
-      Math.round((delayArray.reduce((a, b) => a + b, 0) / delaytNum) * 100) /
-      100;
+    var delayAve = Math.round(
+      delayArray.reduce((a, b) => a + b, 0) / delaytNum
+    );
     console.log(cancelTotalPc);
     // console.log(delaytNum);
     // console.log(cancelNum);
